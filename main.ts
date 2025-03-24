@@ -30,8 +30,8 @@ namespace graphing {
         while (index < Math.min(x_list.length, y_list.length)) {
             new_point = [normal_x_list[index], normal_y_list[index]];
             screen().drawLine(point[0], point[1], new_point[0], new_point[1], 2);
+            point = [normal_x_list[index], normal_y_list[index]];
             index = index + 1;
-            point = new_point;
         }
         return;
 
