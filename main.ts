@@ -4,7 +4,6 @@ namespace graphing {
     // note that Caml casing yields lower case
     // block text with spaces
 
-    //% block
     function normaliseArray(xs: Array<number>, mini: number, maxi: number) {
         let xs_mini = xs.reduce((a, b) => Math.min(a, b), 0);
         let xs_maxi = xs.reduce((a, b) => Math.max(a, b), 0);
@@ -16,6 +15,8 @@ namespace graphing {
         }
         return new_xs
     }
+
+    //% block
     export function lineGraph(x_list: Array<number>, y_list: Array<number>) {
         let new_x_list = normaliseArray(x_list, 5, 154);
         let new_y_list = normaliseArray(x_list, 5, 114);
