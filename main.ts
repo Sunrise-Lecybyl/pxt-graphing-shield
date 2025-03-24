@@ -8,9 +8,9 @@ namespace graphing {
         let xs_mini = xs.reduce((a, b) => Math.min(a, b), 0);
         let xs_maxi = xs.reduce((a, b) => Math.max(a, b), 0);
         let index = 0;
-        let new_xs: Array<number>;
+        let new_xs: Array<number> = [];
         while (index < xs.length) {
-            new_xs[index] = (xs[index] - xs_mini) * (maxi - mini) / (xs_maxi - xs_mini)
+            new_xs[index] = (xs[index] - xs_mini) * (maxi - mini) / (xs_maxi - xs_mini);
             index = index + 1;
         }
         return new_xs
@@ -23,8 +23,8 @@ namespace graphing {
         screen().fill(1);
         console.log(x_list);
         console.log(y_list);
-        screen().drawLine(5, 5, 5, 114, 0)
-        screen().drawLine(5, 114, 154, 114, 0)
+        screen().drawLine(5, 5, 5, 114, 0);
+        screen().drawLine(5, 114, 154, 114, 0);
         let index = 1;
         let point = [x_list[0], y_list[0]];
         let new_point: [number, number] = [x_list[0], y_list[0]];
