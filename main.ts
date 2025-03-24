@@ -27,12 +27,13 @@ namespace graphing {
         screen().drawLine(5, 5, 5, 114, 0);
         screen().drawLine(5, 114, 154, 114, 0);
         let index = 1;
-        let point: number[] = [x_list[0], y_list[0]];
+        let point: number[] = [new_x_list[0], new_y_list[0]];
         let new_point: number[] = [x_list[0], y_list[0]];
         while (index < Math.min(x_list.length, y_list.length)) {
-            new_point = [x_list[index], y_list[index]];
+            new_point = [new_x_list[index], new_y_list[index]];
             screen().drawLine(point[0], point[1], new_point[0], new_point[1], 2);
             index = index + 1;
+            point = new_point;
         }
         return;
 
