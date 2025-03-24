@@ -10,7 +10,7 @@ namespace graphing {
         let index = 0;
         let new_xs: Array<number> = [];
         while (index < xs.length) {
-            new_xs[index] = (xs[index] - xs_mini) * (maxi - mini) / (xs_maxi - xs_mini);
+            new_xs[index] = mini + (xs[index] - xs_mini) * (maxi - mini) / (xs_maxi - xs_mini);
             index = index + 1;
         }
         return new_xs
