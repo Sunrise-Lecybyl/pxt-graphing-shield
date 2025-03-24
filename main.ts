@@ -18,19 +18,17 @@ namespace graphing {
 
     //% block
     export function lineGraph(x_list: Array<number>, y_list: Array<number>) {
-        let new_x_list = normaliseArray(x_list, 5, 154);
-        let new_y_list = normaliseArray(x_list, 114, 5);
-        console.log(new_x_list);
+        let normal_x_list = normaliseArray(x_list, 5, 154);
+        let normal_y_list = normaliseArray(x_list, 114, 5);
+        console.log(normal_x_list);
         screen().fill(1);
-        console.log(x_list);
-        console.log(y_list);
         screen().drawLine(5, 5, 5, 114, 0);
         screen().drawLine(5, 114, 154, 114, 0);
         let index = 1;
-        let point: number[] = [new_x_list[0], new_y_list[0]];
+        let point: number[] = [normal_x_list[0], normal_y_list[0]];
         let new_point: number[] = [x_list[0], y_list[0]];
         while (index < Math.min(x_list.length, y_list.length)) {
-            new_point = [new_x_list[index], new_y_list[index]];
+            new_point = [normal_x_list[index], normal_y_list[index]];
             screen().drawLine(point[0], point[1], new_point[0], new_point[1], 2);
             index = index + 1;
             point = new_point;
