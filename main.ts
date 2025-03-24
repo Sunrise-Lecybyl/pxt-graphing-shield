@@ -27,7 +27,7 @@ namespace graphing {
         screen().drawLine(5, 114, 154, 114, 0)
         let index = 1;
         let point = [x_list[0], y_list[0]];
-        let new_point: [number, number]
+        let new_point: [number, number] = [x_list[0], y_list[0]];
         while (index < Math.min(x_list.length, y_list.length)) {
             new_point = [x_list[index], y_list[index]];
             screen().drawLine(point[0], point[1], new_point[0], new_point[1], 2);
