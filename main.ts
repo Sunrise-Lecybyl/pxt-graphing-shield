@@ -19,7 +19,8 @@ namespace graphing {
     //% block
     export function lineGraph(x_list: Array<number>, y_list: Array<number>) {
         let new_x_list = normaliseArray(x_list, 5, 154);
-        let new_y_list = normaliseArray(x_list, 5, 114);
+        let new_y_list = normaliseArray(x_list, 114, 5);
+        console.log(new_x_list);
         screen().fill(1);
         console.log(x_list);
         console.log(y_list);
