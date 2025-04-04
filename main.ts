@@ -5,7 +5,8 @@ namespace graphing {
 
     // note that Caml casing yields lower case
     // block text with spaces
-    // test
+    // Julia's test
+
 
     function normaliseArray(xs: Array<number>, mini: number, maxi: number) {
         let xs_mini = xs.reduce((a, b) => Math.min(a, b), 9007199254740991); //For some reason Number.MAX_SAFE_INTEGER just breaks
