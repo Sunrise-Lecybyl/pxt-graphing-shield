@@ -31,7 +31,7 @@ namespace graphing {
 
         let index = 1;
         let point: number[] = [normal_x_list[0], normal_y_list[0]];
-        let new_point: number[] = [x_list[0], y_list[0]];
+        let new_point: number[] = [normal_x_list[1], normal_y_list[1]];
 
         while (index < Math.min(x_list.length, y_list.length)) {
             new_point = [normal_x_list[index], normal_y_list[index]];
