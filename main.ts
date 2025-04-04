@@ -7,6 +7,7 @@ namespace graphing {
     // block text with spaces
     // Julia's test
 
+
     function normaliseArray(xs: Array<number>, mini: number, maxi: number) {
         let xs_mini = xs.reduce((a, b) => Math.min(a, b), 9007199254740991); //For some reason Number.MAX_SAFE_INTEGER just breaks
         let xs_maxi = xs.reduce((a, b) => Math.max(a, b), -9007199254740991);
