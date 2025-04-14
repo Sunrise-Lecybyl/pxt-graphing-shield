@@ -17,6 +17,100 @@ namespace graphing {
         }
         return new_xs
     }
+    function pencilUpDirection(d: number, x: number, y: number) {
+        if (d == 0) {
+            screen().drawBitmap(bmp`
+            1 1 1 1 1 1 1 
+            1 1 1 1 1 1 1 
+            1 1 1 1 1 1 1 
+            1 1 1 1 1 1 1 
+            1 1 1 1 1 1 1 
+            1 1 1 1 1 1 1 
+            1 1 1 1 1 1 1 
+            `, x - 3, y - 3)
+        } else if (d == 1) {
+            screen().drawBitmap(bmp`
+            1 1 1 1 1 1 1 
+            1 1 1 1 1 1 1 
+            1 1 1 1 1 1 1 
+            1 1 1 1 1 1 1 
+            `, x - 3, y - 3)
+        } else if (d == 2) {
+            screen().drawBitmap(bmp`
+            1 1 1 1 
+            1 1 1 1 
+            1 1 1 1 
+            1 1 1 1 
+            1 1 1 1 
+            1 1 1 1 
+            1 1 1 1 
+            `, x, y - 3)
+        } else if (d == 3) {
+            screen().drawBitmap(bmp`
+            1 1 1 1 1 1 1 
+            1 1 1 1 1 1 1 
+            1 1 1 1 1 1 1 
+            1 1 1 1 1 1 1 
+            `, x - 3, y)
+        } else if (d == 4) {
+            screen().drawBitmap(bmp`
+            1 1 1 1 
+            1 1 1 1 
+            1 1 1 1 
+            1 1 1 1 
+            1 1 1 1 
+            1 1 1 1 
+            1 1 1 1 
+            `, x - 3, y - 3)
+        }
+    }
+    function pencilDownDirection(d: number, x: number, y: number) {
+        if (d == 0) {
+            screen().drawBitmap(bmp`
+            1 1 1 1 1 1 1 
+            1 1 1 1 1 1 1 
+            1 1 1 1 1 1 1 
+            1 1 1 8 1 1 1 
+            1 1 1 1 1 1 1 
+            1 1 1 1 1 1 1 
+            1 1 1 1 1 1 1 
+            `, x - 3, y - 3)
+        } else if (d == 1) {
+            screen().drawBitmap(bmp`
+            1 1 1 1 1 1 1 
+            1 1 1 1 1 1 1 
+            1 1 1 1 1 1 1 
+            1 1 1 8 1 1 1 
+            `, x - 3, y - 3)
+        } else if (d == 2) {
+            screen().drawBitmap(bmp`
+            1 1 1 1 
+            1 1 1 1 
+            1 1 1 1 
+            8 1 1 1 
+            1 1 1 1 
+            1 1 1 1 
+            1 1 1 1 
+            `, x, y - 3)
+        } else if (d == 3) {
+            screen().drawBitmap(bmp`
+            1 1 1 8 1 1 1 
+            1 1 1 1 1 1 1 
+            1 1 1 1 1 1 1 
+            1 1 1 1 1 1 1 
+            `, x - 3, y)
+        } else if (d == 4) {
+            screen().drawBitmap(bmp`
+            1 1 1 1 
+            1 1 1 1 
+            1 1 1 1 
+            1 1 1 8 
+            1 1 1 1 
+            1 1 1 1 
+            1 1 1 1 
+            `, x - 3, y - 3)
+        }
+    }
 
     //% block
     export function lineGraph(x_list: Array<number>, y_list: Array<number>) {
@@ -48,103 +142,10 @@ namespace graphing {
         let y = 0
         let x = 0
         let pencilDown = true
-        function pencilUpDirection() {
-            if (d == 0) {
-                screen().drawBitmap(bmp`
-            1 1 1 1 1 1 1 
-            1 1 1 1 1 1 1 
-            1 1 1 1 1 1 1 
-            1 1 1 1 1 1 1 
-            1 1 1 1 1 1 1 
-            1 1 1 1 1 1 1 
-            1 1 1 1 1 1 1 
-            `, x - 3, y - 3)
-            } else if (d == 1) {
-                screen().drawBitmap(bmp`
-            1 1 1 1 1 1 1 
-            1 1 1 1 1 1 1 
-            1 1 1 1 1 1 1 
-            1 1 1 1 1 1 1 
-            `, x - 3, y - 3)
-            } else if (d == 2) {
-                screen().drawBitmap(bmp`
-            1 1 1 1 
-            1 1 1 1 
-            1 1 1 1 
-            1 1 1 1 
-            1 1 1 1 
-            1 1 1 1 
-            1 1 1 1 
-            `, x, y - 3)
-            } else if (d == 3) {
-                screen().drawBitmap(bmp`
-            1 1 1 1 1 1 1 
-            1 1 1 1 1 1 1 
-            1 1 1 1 1 1 1 
-            1 1 1 1 1 1 1 
-            `, x - 3, y)
-            } else if (d == 4) {
-                screen().drawBitmap(bmp`
-            1 1 1 1 
-            1 1 1 1 
-            1 1 1 1 
-            1 1 1 1 
-            1 1 1 1 
-            1 1 1 1 
-            1 1 1 1 
-            `, x - 3, y - 3)
-            }
-        }
-        function pencilDownDirection() {
-            if (d == 0) {
-                screen().drawBitmap(bmp`
-            1 1 1 1 1 1 1 
-            1 1 1 1 1 1 1 
-            1 1 1 1 1 1 1 
-            1 1 1 8 1 1 1 
-            1 1 1 1 1 1 1 
-            1 1 1 1 1 1 1 
-            1 1 1 1 1 1 1 
-            `, x - 3, y - 3)
-            } else if (d == 1) {
-                screen().drawBitmap(bmp`
-            1 1 1 1 1 1 1 
-            1 1 1 1 1 1 1 
-            1 1 1 1 1 1 1 
-            1 1 1 8 1 1 1 
-            `, x - 3, y - 3)
-            } else if (d == 2) {
-                screen().drawBitmap(bmp`
-            1 1 1 1 
-            1 1 1 1 
-            1 1 1 1 
-            8 1 1 1 
-            1 1 1 1 
-            1 1 1 1 
-            1 1 1 1 
-            `, x, y - 3)
-            } else if (d == 3) {
-                screen().drawBitmap(bmp`
-            1 1 1 8 1 1 1 
-            1 1 1 1 1 1 1 
-            1 1 1 1 1 1 1 
-            1 1 1 1 1 1 1 
-            `, x - 3, y)
-            } else if (d == 4) {
-                screen().drawBitmap(bmp`
-            1 1 1 1 
-            1 1 1 1 
-            1 1 1 1 
-            1 1 1 8 
-            1 1 1 1 
-            1 1 1 1 
-            1 1 1 1 
-            `, x - 3, y - 3)
-            }
-        }
+
         controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
             if (pencilDown) {
-              //  pencilDownDirection()
+                pencilDownDirection(d, x, y)
                 y = (y + 116) % 120
                 screen().drawBitmap(bmp`
             1 1 1 2 1 1 1 
@@ -156,7 +157,7 @@ namespace graphing {
             1 1 1 8 1 1 1 
             `, x - 3, y - 3)
             } else {
-                pencilUpDirection()
+                pencilUpDirection(d, x, y)
                 y = (y + 116) % 120
                 screen().drawBitmap(bmp`
             1 1 1 2 1 1 1 
@@ -181,7 +182,7 @@ namespace graphing {
         })
         controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
             if (pencilDown) {
-                pencilDownDirection()
+                pencilDownDirection(d, x, y)
                 x = (x + 156) % 160
                 screen().drawBitmap(bmp`
             1 1 1 2 1 1 1 
@@ -193,7 +194,7 @@ namespace graphing {
             1 1 1 2 1 1 1 
             `, x - 3, y - 3)
             } else {
-                pencilUpDirection()
+                pencilUpDirection(d, x, y)
                 x = (x + 156) % 160
                 screen().drawBitmap(bmp`
             1 1 1 2 
@@ -209,7 +210,7 @@ namespace graphing {
         })
         controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
             if (pencilDown) {
-                pencilDownDirection()
+                pencilDownDirection(d, x, y)
                 x = (x + 164) % 160
                 screen().drawBitmap(bmp`
             1 1 1 2 1 1 1 
@@ -221,7 +222,7 @@ namespace graphing {
             1 1 1 2 1 1 1 
             `, x - 3, y - 3)
             } else {
-                pencilUpDirection()
+                pencilUpDirection(d, x, y)
                 x = (x + 164) % 160
                 screen().drawBitmap(bmp`
             2 1 1 1 
@@ -237,7 +238,7 @@ namespace graphing {
         })
         controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
             if (pencilDown) {
-                pencilDownDirection()
+                pencilDownDirection(d, x, y)
                 y = (y + 124) % 120
                 screen().drawBitmap(bmp`
             1 1 1 8 1 1 1 
@@ -249,7 +250,7 @@ namespace graphing {
             1 1 1 2 1 1 1 
             `, x - 3, y - 3)
             } else {
-                pencilUpDirection()
+                pencilUpDirection(d, x, y)
                 y = (y + 124) % 120
                 screen().drawBitmap(bmp`
             2 2 2 2 2 2 2 
