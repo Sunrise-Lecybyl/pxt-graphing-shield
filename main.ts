@@ -144,7 +144,7 @@ namespace graphing {
         }
         controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
             if (pencilDown) {
-                pencilDownDirection()
+              //  pencilDownDirection()
                 y = (y + 116) % 120
                 screen().drawBitmap(bmp`
             1 1 1 2 1 1 1 
