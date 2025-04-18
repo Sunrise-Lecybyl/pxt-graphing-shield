@@ -394,6 +394,7 @@
         controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
             if (pencilDown) {
                 pencilDownDirection(d, x, y)
+                y = (y + 2) % 120
                 screen().drawBitmap(bmp`
             1 1 1 8 1 1 1 
             2 2 2 8 2 2 2 
