@@ -139,28 +139,28 @@
     }
 
     function retainOldBits(x: number, y: number, allLines: Bitmap) {
-        let tempx = (x + 153) % 160
-        let tempy = (y + 113) % 120
-        for (let index = 0; index < 15; index++) {
-            for (let index = 0; index < 15; index++) {
+        let tempx = (x + 155) % 160
+        let tempy = (y + 115) % 120
+        for (let index = 0; index < 11; index++) {
+            for (let index = 0; index < 11; index++) {
                 if (screen().getPixel(tempx, tempy) == 8) {
                     allLines.setPixel(tempx, tempy, 8)
                 }
                 tempy = (tempy + 1) % 120
             }
-            tempy = (y + 113) % 120
+            tempy = (y + 115) % 120
             tempx = (tempx + 1) % 160
         }
-        tempx = (x + 153) % 160
-        tempy = (y + 113) % 120
-        for (let index = 0; index < 15; index++) {
-            for (let index = 0; index < 15; index++) {
+        tempx = (x + 155) % 160
+        tempy = (y + 115) % 120
+        for (let index = 0; index < 11; index++) {
+            for (let index = 0; index < 11; index++) {
                 if (allLines.getPixel(tempx, tempy) == 8 && screen().getPixel(tempx, tempy) != 2) {
                     screen().setPixel(tempx, tempy, 8)
                 }
                 tempy = (tempy + 1) % 120
             }
-            tempy = (y + 113) % 120
+            tempy = (y + 115) % 120
             tempx = (tempx + 1) % 160
         }
     }
