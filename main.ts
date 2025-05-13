@@ -57,6 +57,10 @@ namespace graphing {
         screen().fill(1);
         screen().drawLine(5, 5, 5, 114, 0);
         screen().drawLine(5, 114, 154, 114, 0);
+
+        for (let i = 0; i < width; i++) {
+            screen().fillRect(5+(4*i+1)*unit, 5+110*(1-normalised[i]), 3*unit, normalised[i]*110, i+2);
+        }
     }
 
     //% block
