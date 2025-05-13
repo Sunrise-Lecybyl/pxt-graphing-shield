@@ -1,9 +1,6 @@
 namespace graphing {
 
 
- namespace graphing {
-
-
     // note that Caml casing yields lower case
     // block text with spaces
 
@@ -97,10 +94,6 @@ namespace graphing {
         }
     }
 
-    function sleep(sec: number) {
-        return new Promise(resolve => setTimeout(resolve, sec * 1000));
-    }
-
     class Turtle {
         x: number = 80;
         y: number = 60;
@@ -110,15 +103,22 @@ namespace graphing {
         speed: number = 30;
 
         move(dist: number): void {
-            let dx = dist * Math.cos(this.dir * Math.PI / 180);
-            let dy = dist * Math.sin(this.dir * Math.PI / 180);
             if (this.speed == 0) {
+                let dx = dist * Math.cos(this.dir * Math.PI / 180);
+                let dy = dist * Math.sin(this.dir * Math.PI / 180);
                 screen().drawLine(this.x, this.y, this.x + dx, this.y + dy, convertColour(this.colour));
                 this.x += dx;
                 this.y += dy;
             }
             else {
-                return
+                let dx = this.speed * Math.cos(this.dir * Math.PI / 180) / 30;
+                let dy = this.speed * Math.sin(this.dir * Math.PI / 180) / 30;
+                for (let i = 1; i <= dist / this.speed;i++) {
+                    screen().drawLine(this.x, this.y, this.x + dx, this.y + dy, convertColour(this.colour));
+                    this.x += dx;
+                    this.y += dy;
+                    pause(1/30)
+                }
             }
         }
 
