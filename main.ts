@@ -54,6 +54,7 @@ namespace graphing {
         let normalised = normaliseBuckets(buckets);
         let width = buckets.length;
         let unit = 150.0 / (4 * width + 1);
+        screen().fill(1);
         screen().drawLine(5, 5, 5, 114, 0);
         screen().drawLine(5, 114, 154, 114, 0);
     }
