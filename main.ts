@@ -46,7 +46,7 @@ namespace graphing {
 namespace Turtle {
 
     //%
-    enum Colour {Black, White, Red, Pink, Orange, Yellow, Teal, Green, Blue, LightBlue, Purple, LightPurple, DarkPurple, Peach, Brown};
+    enum Colour {Black = 0, White = 1, Red = 2, Pink, Orange, Yellow, Teal, Green, Blue, LightBlue, Purple, LightPurple, DarkPurple, Peach, Brown};
 
     function convertColour(colour: Colour): number {
         if (colour == Colour.Black) {
