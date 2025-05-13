@@ -45,68 +45,13 @@ namespace graphing {
 
 namespace Turtle {
 
-    //%
-    enum Colour {Black = 0, White = 1, Red = 2, Pink, Orange, Yellow, Teal, Green, Blue, LightBlue, Purple, LightPurple, DarkPurple, Peach, Brown};
-
-    function convertColour(colour: Colour): number {
-        if (colour == Colour.Black) {
-            return 0;
-        }
-        if (colour == Colour.White) {
-            return 1;
-        }
-        if (colour == Colour.Red) {
-            return 2;
-        }
-        if (colour == Colour.Pink) {
-            return 3;
-        }
-        if (colour == Colour.Orange) {
-            return 4;
-        }
-        if (colour == Colour.Yellow) {
-            return 5;
-        }
-        if (colour == Colour.Teal) {
-            return 6;
-        }
-        if (colour == Colour.Green) {
-            return 7;
-        }
-        if (colour == Colour.Blue) {
-            return 8;
-        }
-        if (colour == Colour.LightBlue) {
-            return 9;
-        }
-        if (colour == Colour.Purple) {
-            return 10;
-        }
-        if (colour == Colour.LightPurple) {
-            return 11;
-        }
-        if (colour == Colour.DarkPurple) {
-            return 12;
-        }
-        if (colour == Colour.Peach) {
-            return 13;
-        }
-        if (colour == Colour.Brown) {
-            return 14;
-        }
-        else {
-            return -1;
-        }
-    }
-
-
 
     class Turtle {
         x: number;
         y: number = 60;
         dir: number = 0;
         pen: "up" | "down";
-        colour: Colour;
+        colour: number;
         speed: number;
 
         constructor() {
@@ -114,7 +59,7 @@ namespace Turtle {
             this.y = 60;
             this.dir = 0;
             this.pen = "down";
-            this.colour = Colour.Black;
+            this.colour = 0;
             this.speed = 30;
         }
 
@@ -123,7 +68,7 @@ namespace Turtle {
                 let dx = dist * Math.cos(this.dir * Math.PI / 180);
                 let dy = dist * Math.sin(this.dir * Math.PI / 180);
                 if (this.pen == "down"){
-                    screen().drawLine(this.x, this.y, this.x + dx, this.y + dy, convertColour(this.colour));
+                    screen().drawLine(this.x, this.y, this.x + dx, this.y + dy, this.colour);
                 }                
                 this.x += dx;
                 this.y += dy;
@@ -133,7 +78,7 @@ namespace Turtle {
                 let dy = this.speed * Math.sin(this.dir * Math.PI / 180) / 30;
                 for (let i = 1; i <= dist / this.speed;i++) {
                     if (this.pen == "down") {
-                        screen().drawLine(this.x, this.y, this.x + dx, this.y + dy, convertColour(this.colour));
+                        screen().drawLine(this.x, this.y, this.x + dx, this.y + dy, this.colour);
                     }
                     this.x += dx;
                     this.y += dy;
@@ -155,7 +100,7 @@ namespace Turtle {
             this.dir = bearing;
         }
 
-        set_colour(colour: Colour): void {
+        set_colour(colour: number): void {
             this.colour = colour;
         }
 
@@ -202,7 +147,7 @@ namespace Turtle {
     }
 
     //% block
-    export function setColour(colour: Colour) : void {
+    export function setColour(colour: number) : void {
         Turt.set_colour(colour);
     }
 
