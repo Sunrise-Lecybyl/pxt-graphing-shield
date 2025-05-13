@@ -41,6 +41,10 @@ namespace graphing {
         return;
 
     }
+}
+
+namespace Turtle {
+
     type Colour = "black" | "white" | "red" | "pink" | "orange" | "yellow" | "teal" | "green" | "blue" | "light blue" | "purple" | "light purple" | "dark purple" | "peach" | "brown";
 
     function convertColour(colour: Colour): number {
@@ -94,19 +98,32 @@ namespace graphing {
         }
     }
 
+
+
     class Turtle {
-        x: number = 80;
+        x: number;
         y: number = 60;
         dir: number = 0;
-        pen: "up" | "down" = "down";
-        colour: Colour = "red";
-        speed: number = 30;
+        pen: "up" | "down";
+        colour: Colour;
+        speed: number;
+
+        constructor() {
+            this.x = 80;
+            this.y = 60;
+            this.dir = 0;
+            this.pen = "up";
+            this.colour = "black";
+            this.speed = 30;
+        }
 
         move(dist: number): void {
             if (this.speed == 0) {
                 let dx = dist * Math.cos(this.dir * Math.PI / 180);
                 let dy = dist * Math.sin(this.dir * Math.PI / 180);
-                screen().drawLine(this.x, this.y, this.x + dx, this.y + dy, convertColour(this.colour));
+                if (this.pen == "down"){
+                    screen().drawLine(this.x, this.y, this.x + dx, this.y + dy, convertColour(this.colour));
+                }                
                 this.x += dx;
                 this.y += dy;
             }
@@ -114,7 +131,9 @@ namespace graphing {
                 let dx = this.speed * Math.cos(this.dir * Math.PI / 180) / 30;
                 let dy = this.speed * Math.sin(this.dir * Math.PI / 180) / 30;
                 for (let i = 1; i <= dist / this.speed;i++) {
-                    screen().drawLine(this.x, this.y, this.x + dx, this.y + dy, convertColour(this.colour));
+                    if (this.pen == "down") {
+                        screen().drawLine(this.x, this.y, this.x + dx, this.y + dy, convertColour(this.colour));
+                    }
                     this.x += dx;
                     this.y += dy;
                     pause(1/30)
@@ -131,8 +150,8 @@ namespace graphing {
             this.dir += angle;
         }
 
-        set_angle(angle: number): void {
-            this.dir = angle
+        set_angle(bearing: number): void {
+            this.dir = bearing;
         }
 
         set_colour(colour: Colour): void {
@@ -153,4 +172,51 @@ namespace graphing {
             this.pen = "down"
         }
     }
+    let Turt: Turtle;
+    
+    //% block
+    export function makeTurtle() {
+        Turt = new Turtle();
+    }
+
+    //% block
+    export function move(dist: number) : void {
+        Turt.move(dist);
+    }
+
+    //% block
+    export function setPosition(x:number, y:number) : void {
+        Turt.set_pos(x, y);
+    }
+
+    //% block
+    export function turn(degrees: number) : void {
+        Turt.rotate(degrees);
+    }
+
+    //% block
+    export function setAngle(direction: number) : void {
+        Turt.set_angle(direction)
+    }
+
+    //% block
+    export function setColour(colour: Colour) : void {
+        Turt.set_colour(colour);
+    }
+
+    //% block
+    export function setSpeed(speed: number) : void {
+        Turt.set_speed(speed);
+    }
+
+    //% block
+    export function penUp() : void {
+        Turt.pen_up();
+    }
+
+    //% block
+    export function penDown(): void {
+        Turt.pen_down();
+    }
+
 }
