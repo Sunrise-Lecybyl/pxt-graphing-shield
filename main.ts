@@ -42,16 +42,18 @@ namespace graphing {
 
     //% block
     export function barChart(buckets: Array<number>)  {
+        let buckets_temp = [...buckets];
+        buckets_temp.push(0.0)
         let normalised = normaliseArray(buckets, 0.0, 1.0);
         let width = buckets.length;
         let unit = 150.0 / (4 * width + 1);
         screen().fill(1);
-        screen().drawLine(5, 5, 5, 114, 0);
-        screen().drawLine(5, 114, 154, 114, 0);
 
         for (let i = 0; i < width; i++) {
-            screen().fillRect(5+(4*i+1)*unit, 5+110*(1-normalised[i]), 3*unit, normalised[i]*110 - 1, i+2);
+            screen().fillRect(5+(4*i+1)*unit, 5+110*(1-normalised[i]), 3*unit, normalised[i]*110, i+2);
         }
+        screen().drawLine(5, 5, 5, 114, 0);
+        screen().drawLine(5, 114, 154, 114, 0);
     }
 
     //% block
