@@ -45,6 +45,7 @@ namespace graphing {
 
 namespace Turtle {
 
+    //%
     enum Colour {Black, White, Red, Pink, Orange, Yellow, Teal, Green, Blue, LightBlue, Purple, LightPurple, DarkPurple, Peach, Brown};
 
     function convertColour(colour: Colour): number {
