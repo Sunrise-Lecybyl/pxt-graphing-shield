@@ -40,18 +40,9 @@ namespace graphing {
 
     }
 
-    function normaliseBuckets(buckets: Array<number>) : Array<number> {
-        let sum = parseFloat((buckets.reduce((sum, current) => sum + current, 0)).toString());
-        let new_arr: Array<number> = [];
-        for (let bucket of buckets) {
-            new_arr.push(bucket / sum);
-        }
-        return new_arr
-    }
-
     //% block
     export function barChart(buckets: Array<number>)  {
-        let normalised = normaliseBuckets(buckets);
+        let normalised = normaliseArray(buckets, 0.0, 1.0);
         let width = buckets.length;
         let unit = 150.0 / (4 * width + 1);
         screen().fill(1);
@@ -59,13 +50,13 @@ namespace graphing {
         screen().drawLine(5, 114, 154, 114, 0);
 
         for (let i = 0; i < width; i++) {
-            screen().fillRect(5+(4*i+1)*unit, 5+110*(1-normalised[i]), 3*unit, normalised[i]*110, i+2);
+            screen().fillRect(5+(4*i+1)*unit, 5+110*(1-normalised[i]), 3*unit, normalised[i]*110 - 1, i+2);
         }
     }
 
     //% block
     export function pieChart(buckets: Array<number>) {
-        let normalised = normaliseBuckets(buckets);
+        let normalised = normaliseArray(buckets, 0.0, 1.0);
     }
 }
 
