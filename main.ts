@@ -42,9 +42,14 @@ namespace graphing {
 
     //% block
     export function barChart(buckets: Array<number>)  {
-        let buckets_temp = [...buckets];
-        buckets_temp.push(0.0)
-        let normalised = normaliseArray(buckets, 0.0, 1.0);
+
+        let buckets_temp: Array<number> = []; //None of the natural ways to clone an array work here
+        for (let b of buckets) {
+            buckets_temp.push(b)
+        }
+        buckets_temp.push(0.0);
+
+        let normalised = normaliseArray(buckets_temp, 0.0, 1.0);
         let width = buckets.length;
         let unit = 150.0 / (4 * width + 1);
         screen().fill(1);
