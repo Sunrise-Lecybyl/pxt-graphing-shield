@@ -8,7 +8,6 @@ namespace graphing {
     function normaliseArray(xs: Array<number>, mini: number, maxi: number) {
         let xs_mini = xs.reduce((a, b) => Math.min(a, b), 9007199254740991); //For some reason Number.MAX_SAFE_INTEGER just breaks
         let xs_maxi = xs.reduce((a, b) => Math.max(a, b), -9007199254740991);
-        console.log(xs_mini);
         let index = 0;
         let new_xs: Array<number> = [];
         while (index < xs.length) {
@@ -23,7 +22,6 @@ namespace graphing {
 
         let normal_x_list = normaliseArray(x_list, 5, 154);
         let normal_y_list = normaliseArray(y_list, 114, 5);
-        console.log(normal_x_list);
         screen().fill(1);
         screen().drawLine(5, 5, 5, 114, 0);
         screen().drawLine(5, 114, 154, 114, 0);
@@ -40,6 +38,29 @@ namespace graphing {
         }
         return;
 
+    }
+
+    function normaliseBuckets(buckets: Array<number>) : Array<number> {
+        let sum = parseFloat((buckets.reduce((sum, current) => sum + current, 0)).toString());
+        let new_arr: Array<number> = [];
+        for (let bucket of buckets) {
+            new_arr.push(bucket / sum);
+        }
+        return new_arr
+    }
+
+    //%
+    export function barChart(buckets: Array<number>)  {
+        let normalised = normaliseBuckets(buckets);
+        let width = buckets.length;
+        let unit = 150.0 / (4 * width + 1);
+        screen().drawLine(5, 5, 5, 114, 0);
+        screen().drawLine(5, 114, 154, 114, 0);
+    }
+
+    //%
+    export function pieChart(buckets: Array<number>) {
+        let normalised = normaliseBuckets(buckets);
     }
 }
 
