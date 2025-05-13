@@ -49,7 +49,7 @@ namespace graphing {
         return new_arr
     }
 
-    //%
+    //% block
     export function barChart(buckets: Array<number>)  {
         let normalised = normaliseBuckets(buckets);
         let width = buckets.length;
@@ -59,7 +59,7 @@ namespace graphing {
         screen().drawLine(5, 114, 154, 114, 0);
     }
 
-    //%
+    //% block
     export function pieChart(buckets: Array<number>) {
         let normalised = normaliseBuckets(buckets);
     }
