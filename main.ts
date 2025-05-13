@@ -45,52 +45,52 @@ namespace graphing {
 
 namespace Turtle {
 
-    type Colour = "black" | "white" | "red" | "pink" | "orange" | "yellow" | "teal" | "green" | "blue" | "light blue" | "purple" | "light purple" | "dark purple" | "peach" | "brown";
+    enum Colour {Black, White, Red, Pink, Orange, Yellow, Teal, Green, Blue, LightBlue, Purple, LightPurple, DarkPurple, Peach, Brown};
 
     function convertColour(colour: Colour): number {
-        if (colour == "black") {
+        if (colour == Colour.Black) {
             return 0;
         }
-        if (colour == "white") {
+        if (colour == Colour.White) {
             return 1;
         }
-        if (colour == "red") {
+        if (colour == Colour.Red) {
             return 2;
         }
-        if (colour == "pink") {
+        if (colour == Colour.Pink) {
             return 3;
         }
-        if (colour == "orange") {
+        if (colour == Colour.Orange) {
             return 4;
         }
-        if (colour == "yellow") {
+        if (colour == Colour.Yellow) {
             return 5;
         }
-        if (colour == "teal") {
+        if (colour == Colour.Teal) {
             return 6;
         }
-        if (colour == "green") {
+        if (colour == Colour.Green) {
             return 7;
         }
-        if (colour == "blue") {
+        if (colour == Colour.Blue) {
             return 8;
         }
-        if (colour == "light blue") {
+        if (colour == Colour.LightBlue) {
             return 9;
         }
-        if (colour == "purple") {
+        if (colour == Colour.Purple) {
             return 10;
         }
-        if (colour == "light purple") {
+        if (colour == Colour.LightPurple) {
             return 11;
         }
-        if (colour == "dark purple") {
+        if (colour == Colour.DarkPurple) {
             return 12;
         }
-        if (colour == "peach") {
+        if (colour == Colour.Peach) {
             return 13;
         }
-        if (colour == "brown") {
+        if (colour == Colour.Brown) {
             return 14;
         }
         else {
@@ -112,8 +112,8 @@ namespace Turtle {
             this.x = 80;
             this.y = 60;
             this.dir = 0;
-            this.pen = "up";
-            this.colour = "black";
+            this.pen = "down";
+            this.colour = Colour.Black;
             this.speed = 30;
         }
 
