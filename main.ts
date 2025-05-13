@@ -82,7 +82,7 @@ namespace Turtle {
                     }
                     this.x += dx;
                     this.y += dy;
-                    pause(1/30)
+                    pause(1/30);
                 }
             }
         }
