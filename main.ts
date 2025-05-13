@@ -177,6 +177,7 @@ namespace Turtle {
     
     //% block
     export function makeTurtle() {
+        screen().fill(1);
         Turt = new Turtle();
     }
 
