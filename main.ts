@@ -18,7 +18,12 @@ namespace graphing {
     }
 
     function proportions(buckets:Array<number>) {
-        return
+        let sum = buckets.reduce((sum, a) => sum + a, 0.0);
+        let new_arr : Array<number> = [];
+        for (let bucket of buckets) {
+            new_arr.push(bucket / sum);
+        }
+        return new_arr;
     }
 
     //% block
