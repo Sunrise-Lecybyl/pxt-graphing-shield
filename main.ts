@@ -76,7 +76,7 @@ namespace Turtle {
             else {
                 let dx = this.speed * Math.cos(this.dir * Math.PI / 180) / 30;
                 let dy = this.speed * Math.sin(this.dir * Math.PI / 180) / 30;
-                for (let i = 1; i <= dist / this.speed;i++) {
+                for (let i = 1; i <= dist / this.speed;i += 1/30) {
                     if (this.pen == "down") {
                         screen().drawLine(this.x, this.y, this.x + dx, this.y + dy, this.colour);
                     }
