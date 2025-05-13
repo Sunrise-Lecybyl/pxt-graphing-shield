@@ -17,6 +17,10 @@ namespace graphing {
         return new_xs
     }
 
+    function proportions(buckets:Array<number>) {
+        return
+    }
+
     //% block
     export function lineGraph(x_list: Array<number>, y_list: Array<number>) {
 
