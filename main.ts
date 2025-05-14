@@ -104,6 +104,7 @@ namespace graphing {
             dir = new_dir;
         }
     }
+
 }
 
 namespace Turtle {
