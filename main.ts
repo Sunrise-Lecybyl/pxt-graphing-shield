@@ -71,7 +71,7 @@ namespace graphing {
     }
 
     //% block
-    export function pieChart(buckets: Array<number>) {
+    export function pieChart(buckets: Array<number>) : void {
         screen().fill(1)
         let normalised = proportions(buckets);
         screen().drawCircle(80, 60, 50, 0)
@@ -84,11 +84,13 @@ namespace graphing {
         for (let bucket of normalised) {
             cumulative += bucket;
             new_dir = cumulative * 360;
+            diff = new_dir - dir;
             for (let i = dir; i <= diff; i++) {
                 angle = i * Math.PI / 180.0;
                 screen().drawLine(80, 60, 80 + 50 * Math.sin(angle), 60 + 50 * Math.cos(angle), colour)
             }
             colour++;
+            dir = new_dir;
         }
     }
 }
