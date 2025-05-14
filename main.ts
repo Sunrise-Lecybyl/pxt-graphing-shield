@@ -92,9 +92,11 @@ namespace graphing {
             midy = 60 + 50 * Math.cos(midpoint);
             for (let i = dir; i <= new_dir; i+=1) {
                 angle = i * Math.PI / 180.0;
-                screen().drawLine(80, 60, 80 + 50 * Math.sin(angle), 60 + 50 * Math.cos(angle), colour);
+                screen().drawLine(80, 60, 80 + 50 * Math.sin(angle), 60 + 50 * Math.cos(angle), colour); //no good fill function so just draws a ton of lines until hopefully every point is covered.
                 screen().drawLine(midx, midy, 80 + 50 * Math.sin(angle), 60 + 50 * Math.cos(angle), colour);
                 screen().drawLine((80+midx)*0.5, (60+midy)*0.5, 80 + 50 * Math.sin(angle), 60 + 50 * Math.cos(angle), colour);
+                screen().drawLine(80 + 25 * Math.sin(dir), 60 + 25 * Math.cos(dir), 80 + 50 * Math.sin(angle), 60 + 50 * Math.cos(angle), colour);
+                screen().drawLine(80 + 25 * Math.sin(new_dir), 60 + 25 * Math.cos(new_dir), 80 + 50 * Math.sin(angle), 60 + 50 * Math.cos(angle), colour);
             }
             colour++;
             dir = new_dir;
