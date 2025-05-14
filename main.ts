@@ -74,7 +74,6 @@ namespace graphing {
     export function pieChart(buckets: Array<number>) : void {
         screen().fill(1)
         let normalised = proportions(buckets);
-        screen().drawCircle(80, 60, 50, 0)
         let cumulative = 0.0;
         let dir = 0.0;
         let new_dir = 0.0;
@@ -89,12 +88,13 @@ namespace graphing {
             new_dir = cumulative * 360;
             diff = new_dir - dir;
             midpoint = 0.5 * (dir + new_dir) * Math.PI / 180.0;
-            midx = 80 + 30 * Math.sin(midpoint);
-            midy = 60 + 30 * Math.cos(midpoint);
+            midx = 80 + 50 * Math.sin(midpoint);
+            midy = 60 + 50 * Math.cos(midpoint);
             for (let i = dir; i <= new_dir; i+=1) {
                 angle = i * Math.PI / 180.0;
                 screen().drawLine(80, 60, 80 + 50 * Math.sin(angle), 60 + 50 * Math.cos(angle), colour);
                 screen().drawLine(midx, midy, 80 + 50 * Math.sin(angle), 60 + 50 * Math.cos(angle), colour);
+                screen().drawLine((80+midx)*0.5, (60+midy)*0.5, 80 + 50 * Math.sin(angle), 60 + 50 * Math.cos(angle), colour);
             }
             colour++;
             dir = new_dir;
