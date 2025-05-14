@@ -78,9 +78,17 @@ namespace graphing {
         let cumulative = 0.0;
         let dir = 0.0;
         let new_dir = 0.0
+        let colour = 2
+        let angle = 0.0
+        let diff = 0.0
         for (let bucket of normalised) {
             cumulative += bucket;
-
+            new_dir = cumulative * 360;
+            for (let i = dir; i <= diff; i++) {
+                angle = i * Math.PI / 180.0;
+                screen().drawLine(80, 60, Math.sin(angle), Math.cos(angle), colour)
+            }
+            colour++;
         }
     }
 }
