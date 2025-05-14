@@ -86,7 +86,7 @@ namespace graphing {
             new_dir = cumulative * 360;
             for (let i = dir; i <= diff; i++) {
                 angle = i * Math.PI / 180.0;
-                screen().drawLine(80, 60, Math.sin(angle), Math.cos(angle), colour)
+                screen().drawLine(80, 60, 80 + 50 * Math.sin(angle), 60 + 50 * Math.cos(angle), colour)
             }
             colour++;
         }
