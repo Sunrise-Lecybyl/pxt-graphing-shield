@@ -85,7 +85,7 @@ namespace graphing {
             cumulative += bucket;
             new_dir = cumulative * 360;
             diff = new_dir - dir;
-            for (let i = dir; i <= new_dir; i++) {
+            for (let i = dir; i <= new_dir; i+=0.5) {
                 angle = i * Math.PI / 180.0;
                 screen().drawLine(80, 60, 80 + 50 * Math.sin(angle), 60 + 50 * Math.cos(angle), colour)
             }
