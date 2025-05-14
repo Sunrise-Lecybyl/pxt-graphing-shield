@@ -75,6 +75,13 @@ namespace graphing {
         screen().fill(1)
         let normalised = proportions(buckets);
         screen().drawCircle(80, 60, 50, 0)
+        let cumulative = 0.0;
+        let dir = 0.0;
+        let new_dir = 0.0
+        for (let bucket of normalised) {
+            cumulative += bucket;
+
+        }
     }
 }
 
