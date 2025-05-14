@@ -72,7 +72,9 @@ namespace graphing {
 
     //% block
     export function pieChart(buckets: Array<number>) {
-        let normalised = normaliseArray(buckets, 0.0, 1.0);
+        screen().fill(1)
+        let normalised = proportions(buckets);
+        screen().drawCircle(80, 60, 50, 0)
     }
 }
 
